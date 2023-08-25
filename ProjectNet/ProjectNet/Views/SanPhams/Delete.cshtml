@@ -1,0 +1,90 @@
+﻿@model ProjectNet.Models.SanPham
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Delete</h1>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>SanPham</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.MASP)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.MASP)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.TENSP)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.TENSP)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.SOLUONGTON)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.SOLUONGTON)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.IMG)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.IMG)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.MOTA)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.MOTA)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.GIABAN)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.GIABAN)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.CHATLIEU)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.CHATLIEU)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.MAUSAC)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.MAUSAC)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.BAOHANH)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.BAOHANH)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.LoaiSanPham)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.LoaiSanPham.ID)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="ID" />
+        <input id="xoa" value="Delete" onclick="myF()" class="btn btn-danger" /> |
+        <a asp-action="Index">Back to List</a>
+    </form>
+</div>
+<script>
+    function myF() {
+        var del = document.getElementById('xoa');
+        if (confirm('Bạn có chắc muốn xóa nhan vien này') == true) {
+            del.setAttribute('type', 'submit')
+        }
+
+    }
+</script>

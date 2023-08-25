@@ -1,0 +1,76 @@
+﻿@model IEnumerable<ProjectNet.Models.KHACHHANG>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1 style="margin-top: 100px">Index</h1>
+
+<p style="margin-bottom: 10px">
+    <a class="btn btn-primary" asp-action="Create">Create New</a>
+    <a class="btn btn-primary" asp-action="Index" asp-controller="SanPhams">Quản lý san pham</a>
+    <a class="btn btn-primary" asp-action="Index" asp-controller="NhanViens">Quản lý nhân viên</a>
+    <a class="btn btn-primary" asp-action="Index" asp-controller="KHACHHANGs">Quản lý khách hàng</a>
+    <a class="btn btn-primary" asp-action="Index" asp-controller="Hoadons">Quản lý hóa đơn</a>
+    <a class="btn btn-primary" asp-action="Logout" asp-controller="Account">Log out</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.MAKH)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HOTEN)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DIACHI)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SDT)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AVARTAR)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EMAIL)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PASS)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.MAKH)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HOTEN)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DIACHI)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SDT)
+            </td>
+            <td>
+                <img src="@("/Customer/" + item.AVARTAR)" />
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EMAIL)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PASS)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,46 @@
+﻿@model ProjectNet.Models.Binhluan
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Binhluan</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="ID" />
+            <div class="form-group">
+                <label asp-for="IDKH" class="control-label"></label>
+                <input asp-for="IDKH" class="form-control" />
+                <span asp-validation-for="IDKH" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IDSP" class="control-label"></label>
+                <input asp-for="IDSP" class="form-control" />
+                <span asp-validation-for="IDSP" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NOIDUNGBL" class="control-label"></label>
+                <input asp-for="NOIDUNGBL" class="form-control" />
+                <span asp-validation-for="NOIDUNGBL" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="THOIGIANBL" class="control-label"></label>
+                <input asp-for="THOIGIANBL" class="form-control" />
+                <span asp-validation-for="THOIGIANBL" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

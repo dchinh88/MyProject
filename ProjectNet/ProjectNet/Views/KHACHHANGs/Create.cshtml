@@ -1,0 +1,59 @@
+﻿@model ProjectNet.Models.KHACHHANG
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>KHACHHANG</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create" asp-controller="KHACHHANGs" method="post" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="MAKH" class="control-label"></label>
+                <input asp-for="MAKH" class="form-control" />
+                <span asp-validation-for="MAKH" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="HOTEN" class="control-label"></label>
+                <input asp-for="HOTEN" class="form-control" />
+                <span asp-validation-for="HOTEN" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DIACHI" class="control-label"></label>
+                <input asp-for="DIACHI" class="form-control" />
+                <span asp-validation-for="DIACHI" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SDT" class="control-label"></label>
+                <input asp-for="SDT" class="form-control" />
+                <span asp-validation-for="SDT" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <span>Chọn ảnh sản phẩm</span>
+                <input type="file" name="formFile" />
+            </div>
+            <div class="form-group">
+                <label asp-for="EMAIL" class="control-label"></label>
+                <input asp-for="EMAIL" class="form-control" />
+                <span asp-validation-for="EMAIL" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PASS" class="control-label"></label>
+                <input asp-for="PASS" class="form-control" />
+                <span asp-validation-for="PASS" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

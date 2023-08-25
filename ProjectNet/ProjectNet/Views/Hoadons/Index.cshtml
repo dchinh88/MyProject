@@ -1,0 +1,96 @@
+﻿@model IEnumerable<ProjectNet.Models.Hoadon>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1 style="margin-top: 100px">Quản lý hóa đơn</h1>
+
+<p style="margin-bottom: 10px">
+    <a class="btn btn-primary" asp-action="Create">Create New</a>
+    <a class="btn btn-primary" asp-action="Index" asp-controller="SanPhams">Quản lý san pham</a>
+    <a class="btn btn-primary" asp-action="Index" asp-controller="NhanViens">Quản lý nhân viên</a>
+    <a class="btn btn-primary" asp-action="Index" asp-controller="KHACHHANGs">Quản lý khách hàng</a>
+    <a class="btn btn-primary" asp-action="Index" asp-controller="Hoadons">Quản lý hóa đơn</a>
+    <a class="btn btn-primary" asp-action="Logout" asp-controller="Account">Log out</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.IDKH)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NGAYDATHANG)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NGAYGIAOHANG)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DIACHIGIAOHANG)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IDNV)
+            </th>
+            <th>
+                Phuong thuc thanh toan
+            </th>
+            <th>
+                Trang thai
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.IDKH)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NGAYDATHANG)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NGAYGIAOHANG)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DIACHIGIAOHANG)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IDNV)
+            </td>
+            <td>
+                @(item.IDPT == 1 ? "Thanh toan khi nhan hang" : "The tin dung")
+            </td>
+            <td>
+                <script>
+                    var val = @(item.IDTT)
+                    if(val == 1)
+                        document.write("Cho xac nhan")
+                    else if (val == 2){
+                            document.write("Cho lay hang")
+                    }
+                    else if (val == 3){
+                            document.write("Dang giao")
+                    }
+                </script>
+                
+                @*@(item.IDTT == 2 ? "Cho lay hang")
+                @(item.IDTT == 3 ? "Dang giao")*@
+                @*@if(item.IDTT == 1){
+                    Console.WriteLine("Cho xac nhan");
+                } else if (item.IDTT == 2){
+                    Console.WriteLine("Cho lay hang");
+                } else if (item.IDTT == 3){
+                    Console.WriteLine("Dang giao");
+                }*@
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

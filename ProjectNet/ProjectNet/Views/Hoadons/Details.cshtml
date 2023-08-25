@@ -1,0 +1,61 @@
+﻿@model ProjectNet.Models.Hoadon
+
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Hoadon</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.IDKH)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.IDKH)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.NGAYDATHANG)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.NGAYDATHANG)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.NGAYGIAOHANG)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.NGAYGIAOHANG)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.DIACHIGIAOHANG)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DIACHIGIAOHANG)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.IDNV)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.IDNV)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.IDPT)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.IDPT)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.IDTT)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.IDTT)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

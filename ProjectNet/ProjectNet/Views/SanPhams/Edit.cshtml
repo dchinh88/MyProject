@@ -1,0 +1,80 @@
+﻿@model ProjectNet.Models.SanPham
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>SanPham</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit" method="post" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="ID" />
+            <div class="form-group">
+                <label asp-for="LOAISANPHAMID" class="control-label"></label>
+                <select asp-for="LOAISANPHAMID" class="form-control" asp-items="ViewBag.LOAISANPHAMID"></select>
+                <span asp-validation-for="LOAISANPHAMID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MASP" class="control-label"></label>
+                <input asp-for="MASP" class="form-control" />
+                <span asp-validation-for="MASP" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TENSP" class="control-label"></label>
+                <input asp-for="TENSP" class="form-control" />
+                <span asp-validation-for="TENSP" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SOLUONGTON" class="control-label"></label>
+                <input asp-for="SOLUONGTON" class="form-control" />
+                <span asp-validation-for="SOLUONGTON" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IMG" class="control-label"></label>
+                <input asp-for="IMG" class="form-control" />
+                <span asp-validation-for="IMG" class="text-danger"></span>
+            </div>
+            @*<div class="form-group">
+                <span>Chọn ảnh sản phẩm</span>
+                <input type="file" name="formFile" />
+            </div>*@
+            <div class="form-group">
+                <label asp-for="MOTA" class="control-label"></label>
+                <input asp-for="MOTA" class="form-control" />
+                <span asp-validation-for="MOTA" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="GIABAN" class="control-label"></label>
+                <input asp-for="GIABAN" class="form-control" />
+                <span asp-validation-for="GIABAN" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CHATLIEU" class="control-label"></label>
+                <input asp-for="CHATLIEU" class="form-control" />
+                <span asp-validation-for="CHATLIEU" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MAUSAC" class="control-label"></label>
+                <input asp-for="MAUSAC" class="form-control" />
+                <span asp-validation-for="MAUSAC" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BAOHANH" class="control-label"></label>
+                <input asp-for="BAOHANH" class="form-control" />
+                <span asp-validation-for="BAOHANH" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

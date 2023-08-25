@@ -1,0 +1,155 @@
+﻿
+@model List<ProjectNet.Models.GioHang>
+
+
+@{
+    ViewData["Title"] = "GioHang";
+}
+
+
+<h1 style="margin-top: 100px">Giỏ Hàng</h1>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+<script>
+    $(document).ready(() => {
+        $("#thanhtien").click(() => {
+            var x = $("#txtsoX").val();
+            var y = $("#txtsoY").val();
+            var tong = 0;
+            $.ajax({
+                type: "Get",
+                url: '@Url.Action("Thanhtien", "SanPhams")',
+                data: { "soX": x, "soY": y },
+                dataType: "json",
+                contentType: "application/json; charset=utf-8",
+                success: (data) => {
+                    $("#spTongAjax").text(data);
+                    $("#tong").text(data);
+                },
+                error: () => {
+                    alert("Error");
+                }
+            });
+        });
+    })
+</script>
+<script>
+    $(document).ready(() => {
+        $("#thanhtien1").click(() => {
+            var x = $("#txtsoX").val();
+            var y = $("#txtsoY").val();
+            var tong = 0;
+            $.ajax({
+                type: "Get",
+                url: '@Url.Action("Thanhtien", "SanPhams")',
+                data: { "soX": x, "soY": y },
+                dataType: "json",
+                contentType: "application/json; charset=utf-8",
+                success: (data) => {
+                    $("#spTongAjax").text(data);
+                    $("#tong").text(data);
+                },
+
+                error: () => {
+                    alert("Error");
+                }
+            });
+        });
+    })
+</script>
+
+<!--================Cart Area =================-->
+@if(Model.Count > 0){
+    <section class="cart_area padding_top">
+        <div class="container">
+            <div class="cart_inner">
+                <div class="table-responsive">
+
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Product</th>
+                                <th scope="col">Price</th>
+                                <th scope="col">Quantity</th>
+                                <th scope="col">Total</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        <div class="media">
+                                            <div class="d-flex">
+                                                <img width="80px" src="@("/Avatar/" + item.sanPham.IMG)" />
+                                                @*<img src="~/img/b1.jpg" />*@
+                                            </div>
+                                            <div class="media-body">
+                                                <p>@Html.DisplayFor(modelItem => item.sanPham.TENSP)</p>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <input readonly style="border:none; visibility:hidden" id="txtsoX" name="soX" value="@item.DonGia" />
+                                        <h5 id="txtsoX" name="soX">@item.DonGia.ToString("#,##0") VND</h5>
+                                    </td>
+                                    <td>
+                                        <div class="product_count">
+                                            <span id="thanhtien" class="input-number-decrement"> <i class="ti-angle-down"></i></span>
+                                            <input name="soY" id="txtsoY" class="input-number" type="text" value="@(item.SoLuong=1)" min="1" max="10">
+                                            <span id="thanhtien1" class="input-number-increment"> <i class="ti-angle-up"></i></span>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <h5 id="spTongAjax"></h5>
+                                    </td>
+                                    <td>
+                                        <a asp-route="removecart" asp-route-id="@item.sanPham.ID" class="btn btn-danger">Remove</a>
+                                    </td>
+                                </tr>
+
+                            }
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td>
+                                    <h5>Subtotal</h5>
+                                </td>
+                                <td>
+                                    <h5 id="tong"></h5>
+                                </td>
+                            </tr>
+                            @*<tr class="shipping_area">
+                                <td></td>
+                                <td></td>
+                                <td>
+                                    <h5>Shipping</h5>
+                                </td>
+                                <td>
+                                    <div class="form-group">
+                                        <label class="control-label">Địa chỉ <input type="text" class="form-control" /></label>
+                                    </div>
+                                    <select class="shipping_select section_bg">
+                                        <option value="0">Chọn phương thức thanh toán</option>
+                                        <option value="1">Thanh toán khi nhận hàng</option>
+                                        <option value="2">Thẻ tín dụng</option>
+                                    </select>
+                                </td>
+                            </tr>*@
+
+                        </tbody>
+                    </table>
+                    <div class="checkout_btn_inner float-right">
+                        <a class="btn_1" asp-action="TrangChu" asp-controller="SanPhams">Continue Shopping</a>
+                        <a class="btn_1 checkout_btn_1" asp-action="CheckOut" asp-controller="SanPhams">Proceed to checkout</a>
+                    </div>
+                </div>
+            </div>
+    </section>
+}
+else{
+    <p class="alert alert-danger">Giỏ hàng trống</p>
+}
+<!--================End Cart Area =================-->
+
+

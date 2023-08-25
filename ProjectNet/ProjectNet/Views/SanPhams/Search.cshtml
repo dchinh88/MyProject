@@ -1,0 +1,68 @@
+﻿@model IEnumerable<ProjectNet.Models.SearchResult>
+@{
+    ViewData["Title"] = "Search";
+}
+
+<h1 style="margin-top: 100px">Search</h1>
+<h2>Ket qua tim kiem voi tu khoa: @ViewData["TuKhoa"]</h2>
+@if (Model == null || Model.Count() == 0)
+{
+    <span style="color:red">Không thấy</span>
+}
+<table class="table">
+    <tr>
+        <th>
+            Tên sản phẩm
+        </th>
+        <th>
+            Số lượng tồn
+        </th>
+        <th>
+            Mô tả
+        </th>
+        <th>
+            Giá bán
+        </th>
+        <th>
+            Chất liệu
+        </th>
+        <th>
+           Màu sắc
+        </th>
+        <th>
+            Bảo hành
+        </th>
+        <th>
+            Ảnh sản phẩm
+        </th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                    @Html.DisplayFor(m => item.TENSP)
+            </td>
+            <td>
+                    @Html.DisplayFor(m => item.SOLUONGTON)
+            </td>
+            <td>
+                    @Html.DisplayFor(m => item.MOTA)
+            </td>
+            <td>
+                    @Html.DisplayFor(m => item.GIABAN)
+            </td>
+            <td>
+                    @Html.DisplayFor(m => item.CHATLIEU)
+            </td>
+            <td>
+                    @Html.DisplayFor(m => item.MAUSAC)
+            </td>
+            <td>
+                    @Html.DisplayFor(m => item.BAOHANH)
+            </td>
+            <td>
+                <img width="100px" src="@("/Avatar/" + item.IMG)" />
+            </td>
+        </tr>
+    }
+</table>
